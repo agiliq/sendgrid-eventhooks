@@ -3,6 +3,10 @@ from django.core.urlresolvers import reverse
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views.decorators.csrf import csrf_exempt
 from django.core.mail import send_mail
+from django.dispatch import Signal
+
+
+sendgrid_email_received = Signal(providing_args=['post_data'] )
 
 
 def parse_request(data):
@@ -21,21 +25,8 @@ def parse_request(data):
 
 
 @csrf_exempt
-def email(request):
-    resp = send_mail('Subject',
-                     'Tell us what you have accomplished today.',
-                     'hello@worksummarizer.agiliq.com',
-                     ['youremail@something.com'], # to list needs to be filled
-                     fail_silently=False)
-    return HttpResponseRedirect(reverse('sendgrid:webhooks'))
-
-@csrf_exempt
 def sendgrid(request):
     if request.method == 'POST':
-        body = parse_request(request.POST)
-        resp = send_mail("SendGrid Response", body,
-                         'hello@worksummarizer.agiliq.com',
-                         ['youremail@something.com'], # To list needs to me filled
-                         fail_silently=False)
-
+        post_data = parse_request(request.POST)
+        sendgrid_email_received.send(sender=self.__class__, post_data=post_data)
     return render(request, "sendgrid_eventhooks/index.html", {}, )
