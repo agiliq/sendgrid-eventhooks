@@ -1,4 +1,4 @@
-[![Build Status](https://api.travis-ci.org/agiliq/sendgrid-eventhooks.svg?branch=master)](https://travis-ci.org/agiliq/sendgrid-eventhooks)
+[![Build Status](https://api.travis-ci.org/agiliq/sendgrid-eventhooks.svg?branch=develop)](https://travis-ci.org/agiliq/sendgrid-eventhooks)
 
 Django app to receive incoming email notification events from sendgrid
 ========================================================================
