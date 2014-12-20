@@ -7,3 +7,5 @@ install:
 script:
   - "pep8 ."
   - "pyflakes ."
+notifications:
+  slack: agiliq:5sLOhAP22bhezFs2aBesN135
