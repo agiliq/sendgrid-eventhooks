@@ -20,7 +20,7 @@ Usage
 
 * Add sendgrid_events to your `installed_apps`
 * Add to urls.py `url("sendgrid", include("sendgrid_events.urls"))`
-* Associate the Domain/Hostname and the URL in the Parse API settings page.
+* Associate the Domain/Hostname and the URL in the Parse API settings page. Parse API settings page is at https://sendgrid.com/developer/reply
 
 Now whenever sendgrid receives the email, it will post to this webhook.
 
