@@ -1,8 +1,5 @@
-from django.shortcuts import render, render_to_response, get_object_or_404
-from django.core.urlresolvers import reverse
-from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
-from django.core.mail import send_mail
 from django.dispatch import Signal
 
 
@@ -28,5 +25,5 @@ def parse_request(data):
 def sendgrid(request):
     if request.method == 'POST':
         post_data = parse_request(request.POST)
-        sendgrid_email_received.send(sender=self.__class__, post_data=post_data)
+        sendgrid_email_received.send(sender=None, post_data=post_data)
     return render(request, "sendgrid_eventhooks/index.html", {}, )
