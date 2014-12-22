@@ -8,7 +8,6 @@ and send them to a webhook.
 
 https://sendgrid.com/docs/API_Reference/Webhooks/parse.html
 
-
 This app provides the webhook to receive this in your Django projects.
 
 

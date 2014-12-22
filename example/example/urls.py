@@ -5,7 +5,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
                        url(r'^sendgrid/',
-                           include('sendgrid_eventhooks.urls',
+                           include('sendgrid_events.urls',
                                    namespace="sendgrid")),
                        url(r'^admin/',
                            include(admin.site.urls)), )

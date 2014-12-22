@@ -36,7 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'sendgrid_eventhooks',
+    'sendgrid_events',
 )
 
 MIDDLEWARE_CLASSES = (
