@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.dispatch import Signal
 from django.views.decorators.http import require_POST
@@ -28,4 +28,4 @@ def sendgrid(request):
     if request.method == 'POST':
         post_data = parse_request(request.POST)
         sendgrid_email_received.send(sender=None, post_data=post_data)
-    return render(request, "sendgrid_eventhooks/index.html", {}, )
+    return HttpResponse()
