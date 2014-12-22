@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from django.dispatch import Signal
+from django.views.decorators.http import require_POST
 
 
 sendgrid_email_received = Signal(providing_args=['post_data'])
@@ -22,6 +23,7 @@ def parse_request(data):
 
 
 @csrf_exempt
+@require_POST
 def sendgrid(request):
     if request.method == 'POST':
         post_data = parse_request(request.POST)
