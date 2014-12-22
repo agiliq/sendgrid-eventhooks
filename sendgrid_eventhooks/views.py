@@ -27,6 +27,5 @@ def parse_request(data):
 def sendgrid(request):
     if request.method == 'POST':
         post_data = parse_request(request.POST)
-        print post_data
         sendgrid_email_received.send(sender=None, post_data=post_data)
     return render(request, "sendgrid_eventhooks/index.html", {}, )
