@@ -4,9 +4,8 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'example.views.home', name='home'),
-    url(r'^sendgrid/', include('sendgrid_eventhooks.urls', namespace="sendgrid")),
-
-    url(r'^admin/', include(admin.site.urls)),
-)
+                       url(r'^sendgrid/',
+                           include('sendgrid_eventhooks.urls',
+                                   namespace="sendgrid")),
+                       url(r'^admin/',
+                           include(admin.site.urls)), )
