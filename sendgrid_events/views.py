@@ -1,10 +1,8 @@
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
-from django.dispatch import Signal
 from django.views.decorators.http import require_POST
 
-
-sendgrid_email_received = Signal(providing_args=['data'])
+from .signals import sendgrid_email_received
 
 
 def parse_request(data):
