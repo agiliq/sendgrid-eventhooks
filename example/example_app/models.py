@@ -2,7 +2,7 @@ import logging
 
 from django.dispatch import receiver
 
-from sendgrid_events.views import sendgrid_email_received
+from sendgrid_events.signals import sendgrid_email_received
 
 
 logger = logging.getLogger()
