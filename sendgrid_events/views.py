@@ -10,7 +10,8 @@ def parse_request(data):
     dict_from_headers = {}
     head = data['headers']
     for each in head.split("\n"):
-        dict_from_headers[each.split(' ')[0][:-1]] = ' '.join(t[1:])
+        row_list = each.split(' ')
+        dict_from_headers[row_list[0][:-1]] = ' '.join(row_list[1:])
     returned_dict["Subject"] = data['subject']
     returned_dict["Sender"] = data['from']
     returned_dict["To"] = dict_from_headers['To']
