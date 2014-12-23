@@ -1,0 +1,11 @@
+language: python
+python:
+  - "2.7"
+install:
+  - "pip install pep8"
+  - "pip install pyflakes"
+script:
+  - "pep8 ."
+  - "pyflakes ."
+notifications:
+  slack: agiliq:5sLOhAP22bhezFs2aBesN135
