@@ -4,7 +4,7 @@ from django.dispatch import Signal
 from django.views.decorators.http import require_POST
 
 
-sendgrid_email_received = Signal(providing_args=['post_data'])
+sendgrid_email_received = Signal(providing_args=['data'])
 
 
 def parse_request(data):
@@ -27,5 +27,5 @@ def parse_request(data):
 def sendgrid(request):
     if request.method == 'POST':
         post_data = parse_request(request.POST)
-        sendgrid_email_received.send(sender=None, post_data=post_data)
+        sendgrid_email_received.send(sender=None, data=post_data)
     return HttpResponse()
