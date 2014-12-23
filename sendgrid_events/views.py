@@ -6,18 +6,17 @@ from .signals import sendgrid_email_received
 
 
 def parse_request(data):
-    ret = {}
-    d = {}
+    returned_dict = {}
+    dict_from_headers = {}
     head = data['headers']
     for each in head.split("\n"):
-        t = each.split(' ')
-        d[t[0][:-1]] = ' '.join(t[1:])
-    ret["Subject"] = data['subject']
-    ret["Sender"] = data['from']
-    ret["To"] = d['To']
-    ret["Date"] = d['Date']
-    ret["Body"] = data['text']
-    return ret
+        dict_from_headers[each.split(' ')[0][:-1]] = ' '.join(t[1:])
+    returned_dict["Subject"] = data['subject']
+    returned_dict["Sender"] = data['from']
+    returned_dict["To"] = dict_from_headers['To']
+    returned_dict["Date"] = dict_from_headers['Date']
+    returned_dict["Body"] = data['text']
+    return returned_dict
 
 
 @csrf_exempt
