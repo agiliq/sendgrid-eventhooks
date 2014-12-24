@@ -8,23 +8,15 @@ from .signals import sendgrid_email_received
 def parse_request(data):
     returned_dict = {}
     dict_from_headers = {}
-    body = ""
     head = data['headers']
     for each in head.split("\n"):
         row_list = each.split(' ')
         dict_from_headers[row_list[0][:-1]] = ' '.join(row_list[1:])
-    returned_dict["subject"] = data['subject']
-    returned_dict["sender_name"] = data['from'].split('<')[0].strip()
-    returned_dict["sender_email"] = data['from'].split('<')[1][:-1]
-    returned_dict["to"] = dict_from_headers['To']
-    returned_dict["date"] = dict_from_headers['Date']
-    for each in data['text'].split('\n'):
-        if each.strip().endswith('> wrote:') or each.strip() == "--":
-            break
-        else:
-            if each.strip():
-                body += each
-    returned_dict["body"] = body
+    returned_dict["Subject"] = data['subject']
+    returned_dict["Sender"] = data['from']
+    returned_dict["To"] = dict_from_headers['To']
+    returned_dict["Date"] = dict_from_headers['Date']
+    returned_dict["Body"] = data['text']
     return returned_dict
 
 
