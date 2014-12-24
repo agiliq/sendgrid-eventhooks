@@ -14,7 +14,7 @@ This app provides the webhook to receive this in your Django projects.
 Installation
 ================
 
-    pip install -r sendgrid_eventhooks
+    pip install sendgrid_eventhooks
 
 Usage
 ============
