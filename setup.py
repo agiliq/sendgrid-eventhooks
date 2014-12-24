@@ -9,6 +9,7 @@ def read(fname):
 setup(
     name='sendgrid_eventhooks',
     packages=['sendgrid_events'],
+    data_files=['README.md'],
     version='0.1.1',
     description='Django app to receive incoming email\
 notification events from sendgrid',
