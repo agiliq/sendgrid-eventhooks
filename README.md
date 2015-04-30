@@ -25,4 +25,10 @@ Usage
 
 Now whenever sendgrid receives the email, it will post to this webhook.
 
-This webwook will consume the data and send a signal called `sendgrid_email_received`. This will have a data attribute with the data received from sendgrid.
+This webwook will consume the data and send a signal called `sendgrid_email_received`. This will have a data attribute containing dict with following keys:
+* Sender
+* To
+* Date
+* Subject
+* Body
+
