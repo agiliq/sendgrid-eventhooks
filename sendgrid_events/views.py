@@ -16,7 +16,7 @@ def parse_request(data):
     returned_dict["Sender"] = data['from']
     returned_dict["To"] = dict_from_headers['To']
     returned_dict["Date"] = dict_from_headers['Date']
-    returned_dict["Body"] = data['text']
+    returned_dict["Body"] = data.get('text', 'Body not found')
     return returned_dict
 
 
